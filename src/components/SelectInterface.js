@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
+import { faker } from '@faker-js/faker';
+
 const SelectInterface = () => {
+  const [result, setResult] = useState();
   const [allChosen, setAllChosen] = useState([]);
   const selects = ['username', 'firstName', 'lastName', 'gender', 'occupation', 'country'];
 
@@ -31,18 +34,11 @@ const SelectInterface = () => {
     setAllChosen(updObj)
   };
 
-  const display = () => {
-    const activeState = allChosen.map((v) => {
-      if (v.status === 'true') {
-        return v.value
-      }
-    })
-
-    return (
-      <div>{activeState}</div>
-    )
-  };
-
+  const activeState = allChosen.map((v) => {
+    if (v.status === 'true') {
+      return v.value
+    }
+  })
 
   const options = selects.map((v) => {
     return (
@@ -53,14 +49,17 @@ const SelectInterface = () => {
   });
 
   const generate = () => {
-
+    const placeholder = {};
+    activeState.forEach((v) => {
+      
+    })
   };
 
   return (
     <div>
       {options}
       <button onClick={generate()}>Generate</button>
-      {display()}
+      <div>{activeState}</div>
     </div>
   );
 };
