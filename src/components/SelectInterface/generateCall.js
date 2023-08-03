@@ -27,7 +27,7 @@ const generateCall = (params) => {
       case 'username':
         resData.username = faker.internet.userName({ firstName: resData.firstName, lastName: resData.lastName });
         break;
-      case 'ethnicity':
+      case 'country':
         resData.country = faker.location.country();
         break;
       case 'occupation':
