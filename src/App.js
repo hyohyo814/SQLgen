@@ -4,7 +4,7 @@ import './index.css';
 const App = () => {
 
   return (
-    <div className='min-h-screen bg-gray-800/80'>
+    <div className='min-h-screen bg-slate-950/70'>
       <SelectInterface />
     </div>
   )
