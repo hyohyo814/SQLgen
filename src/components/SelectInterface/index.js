@@ -6,11 +6,13 @@ import generateCall from './generateCall';
 import displaySqlCreate from './displaySqlCreate';
 import displayResult from './displayResult';
 import displaySqlInsert from './displaySqlInsert';
+import UserGenerateN from './UserGenerateN';
 
 const SelectInterface = () => {
   const [result, setResult] = useState([]);
   const [sqlCreate, setSqlCreate] = useState([]);
   const [allChosen, setAllChosen] = useState([]);
+  const [count, setCount] = useState(0);
   const selects = [
     'username',
     'firstName',
@@ -28,10 +30,8 @@ const SelectInterface = () => {
   }, []);
 
   const selectEvent = (target) => {
-    // console.log(target);
     const updObj = allChosen.map((v) => {
       if (v.value === target) {
-        // console.log('match found');
         switch (v.status) {
           case 'true':
             v.status = 'false';
@@ -65,8 +65,8 @@ const SelectInterface = () => {
   const generate = () => {
     setSqlCreate(selectionIsolate(allChosen));
     const res = generateCall(selectionIsolate(allChosen));
-    // console.log(res);
-    setResult(result.concat(res));
+    console.log(count)
+    setResult([res]);
   };
 
   return (
@@ -74,7 +74,7 @@ const SelectInterface = () => {
       <div className="space-y-2 rounded-xl bg-slate-800 p-3 m-5 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2 border-solid border border-slate-300 text-white font-bold">
         User Data
       </div>
-      <div className="grid md:grid-cols-6 sm:grid-cols-2 space-y-2 rounded-xl bg-slate-800 p-3 m-5 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2 border-solid border border-slate-300">
+      <div className="grid md:grid-cols-4 sm:grid-cols-2 space-y-2 rounded-xl bg-slate-800 p-3 m-5 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2 border-solid border border-slate-300">
         <div className="py-6">
           {options}
           <button
@@ -83,7 +83,11 @@ const SelectInterface = () => {
             generate
           </button>
         </div>
-        <div className="h-96 grid-cols-1 mx-4 bg-slate-300 rounded">
+        <div className='grid py-6 content-end'>
+          <div className='font-semibold text-white py-2'>number:</div>
+          <UserGenerateN setCount={setCount} />
+        </div>
+        <div className="h-96 md:col-span-2 grid-cols-1 mx-4 bg-slate-300 rounded">
           <div className="border-l-zinc-700 px-4 py-6 bg-slate-350 rounded font-semibold">
             Selections:
           </div>
@@ -93,11 +97,11 @@ const SelectInterface = () => {
             </div>
           ))}
         </div>
-        <div className="col-span-2 pb-6 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
+        <div className="md:col-span-2 col-span-2 mx-4 pb-6 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
           //example data
           {displayResult(result)}
         </div>
-        <div className="col-span-2 mx-4 pb-6 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
+        <div className="md:col-span-2 col-span-2 mx-4 pb-6 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
           //SQL
           {displaySqlCreate(sqlCreate)}
           <br/>

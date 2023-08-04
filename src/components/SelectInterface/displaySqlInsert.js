@@ -29,7 +29,7 @@ const displaySqlInsert = (tableValues) => {
         &#41;,
       </div>
     )
-  })
+  });
 
   return (
     <div>
