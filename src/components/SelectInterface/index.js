@@ -93,11 +93,11 @@ const SelectInterface = () => {
             </div>
           ))}
         </div>
-        <div className="col-span-2 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
+        <div className="col-span-2 pb-6 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
           //example data
           {displayResult(result)}
         </div>
-        <div className="col-span-2 mx-4 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
+        <div className="col-span-2 mx-4 pb-6 h-96 bg-slate-600 text-orange-200 rounded px-12 whitespace-pre-wrap overflow-y-auto border border-slate-300">
           //SQL
           {displaySqlCreate(sqlCreate)}
           <br/>
