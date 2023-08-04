@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
 const UserGenerateN = ({setCount}) => {
-  const [rep, setRep] = useState(0);
+  const [rep, setRep] = useState(1);
 
   const handleInc = () => {
-    console.log('increment')
     if (rep === 10) {
       console.log('upper limit reached')
       return
@@ -14,7 +13,6 @@ const UserGenerateN = ({setCount}) => {
   };
 
   const handleDec = () => {
-    console.log('decrement')
     if (rep === 0) {
       console.log('must be greater than zero')
       return
@@ -24,10 +22,13 @@ const UserGenerateN = ({setCount}) => {
   };
 
   return (
-    <div className='grid grid-cols-3 bg-gray-300 font-semibold rounded py-2 my-3'>
-      <button onClick={() => handleDec()}>dec</button>
-      <div>{rep}</div>
-      <button onClick={() => handleInc()}>inc</button>
+    <div>
+      <div className='font-semibold text-white py-2'>number:</div>
+      <div className='grid grid-cols-3 bg-gray-300 font-semibold rounded py-2 my-3'>
+        <button onClick={() => handleDec()}>dec</button>
+        <div>{rep}</div>
+        <button onClick={() => handleInc()}>inc</button>
+      </div>
     </div>
   )
 };

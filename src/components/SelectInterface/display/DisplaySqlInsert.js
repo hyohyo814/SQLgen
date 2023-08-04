@@ -1,4 +1,4 @@
-const displaySqlInsert = (tableValues) => {
+const DisplaySqlInsert = ({ tableValues }) => {
   if (tableValues.length === 0) {
     return <div>awaiting inputs</div>
   }
@@ -42,4 +42,4 @@ const displaySqlInsert = (tableValues) => {
   );
 };
 
-export default displaySqlInsert;
+export default DisplaySqlInsert;

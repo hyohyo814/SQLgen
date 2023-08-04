@@ -1,7 +1,6 @@
-const displayResult = (objArr) => {
+const DisplayResult = ({ objArr }) => {
 
   const nonNullResult = objArr.map((object) => {
-    // console.log(object);
     const reduce = Object.entries(object);
     const reduceMap = reduce.map(([k, v]) => (
       <div
@@ -20,7 +19,12 @@ const displayResult = (objArr) => {
       </div>
     );
   });
-  return nonNullResult;
+  return (
+    <div>
+      //example data
+      {nonNullResult}
+    </div>
+  )
 };
 
-export default displayResult;
+export default DisplayResult;
