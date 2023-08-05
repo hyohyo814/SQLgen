@@ -1,6 +1,11 @@
-const DisplaySqlInsert = ({ tableValues }) => {
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const DisplaySqlInsert = ({tableValues}) => {
   if (tableValues.length === 0) {
-    return <div>awaiting inputs</div>
+    return (
+      <div>awaiting inputs</div>
+    );
   }
 
   const insertParams = Object.keys(tableValues[0]).map((content) => {
@@ -8,17 +13,17 @@ const DisplaySqlInsert = ({ tableValues }) => {
       <div key={content} className='whitespace-pre'>
         {'    '}{content}
       </div>
-    )
-  })
+    );
+  });
 
   const inputVal = tableValues.map((object) => {
     const reduce = Object.entries(object);
-    const reduceMap = reduce.map(([k, v]) => (
+    const reduceMap = reduce.map(([_k, v]) => (
       <div
         key={v}
         className="whitespace-pre">
         {'    '}
-        '{v}',
+        &apos;{v}&apos;,
       </div>
     ));
 
@@ -28,11 +33,11 @@ const DisplaySqlInsert = ({ tableValues }) => {
         {reduceMap}
         &#41;,
       </div>
-    )
+    );
   });
 
   return (
-    <div>
+    <div id='sqlinsert'>
       INSERT INTO table_name &#40;
       {insertParams}
       &#41;
@@ -40,6 +45,10 @@ const DisplaySqlInsert = ({ tableValues }) => {
       {inputVal}
     </div>
   );
+};
+
+DisplaySqlInsert.propTypes = {
+  tableValues: PropTypes.array,
 };
 
 export default DisplaySqlInsert;
