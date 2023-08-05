@@ -16,7 +16,9 @@ const DisplaySqlCreate = ({tableContents}) => {
           </div>
         );
       default:
-        break;
+        return (
+          <div key={content} >NO PROPERTIES SPECIFIED</div>
+        );
     }
   });
 
