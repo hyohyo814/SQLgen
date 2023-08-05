@@ -1,7 +1,8 @@
-const displayResult = (objArr) => {
+import React from 'react';
+import PropTypes from 'prop-types';
 
+const DisplayResult = ({objArr}) => {
   const nonNullResult = objArr.map((object) => {
-    // console.log(object);
     const reduce = Object.entries(object);
     const reduceMap = reduce.map(([k, v]) => (
       <div
@@ -20,7 +21,18 @@ const displayResult = (objArr) => {
       </div>
     );
   });
-  return nonNullResult;
+  return (
+    <div>
+      example data
+      <div id='rawdata'>
+        {nonNullResult}
+      </div>
+    </div>
+  );
 };
 
-export default displayResult;
+DisplayResult.propTypes = {
+  objArr: PropTypes.array,
+};
+
+export default DisplayResult;
