@@ -31,7 +31,7 @@ const UserGenerator = () => {
       return {value: v, status: 'false'};
     });
     setAllChosen(selectsObj);
-  }, []);
+  }, [selects]);
 
   const generate = () => {
     setSqlCreate(selectionIsolate(allChosen));
