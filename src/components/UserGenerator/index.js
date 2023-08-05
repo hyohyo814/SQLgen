@@ -17,21 +17,21 @@ const UserGenerator = () => {
   const [sqlCreate, setSqlCreate] = useState([]);
   const [allChosen, setAllChosen] = useState([]);
   const [count, setCount] = useState(1);
-  const selects = [
-    'username',
-    'firstName',
-    'lastName',
-    'gender',
-    'occupation',
-    'country',
-  ];
 
   useEffect(() => {
+    const selects = [
+      'username',
+      'firstName',
+      'lastName',
+      'gender',
+      'occupation',
+      'country',
+    ];
     const selectsObj = selects.map((v) => {
       return {value: v, status: 'false'};
     });
     setAllChosen(selectsObj);
-  }, [selects]);
+  }, []);
 
   const generate = () => {
     setSqlCreate(selectionIsolate(allChosen));
