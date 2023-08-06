@@ -31,7 +31,8 @@ const DisplayOptions = ({array, setAllChosen, generate}) => {
         onClick={({target}) => selectEvent(target.value)}
       />
       <label htmlFor={v.value} className="w-40 space-x-1
-      py-3 my-1 mx-4 px-5 hover:bg-gray-300 hover:text-slate-800 font-semibold
+      py-3 my-1 mx-4 px-5 md:hover:bg-gray-300
+      md:hover:text-slate-800 font-semibold
       text-white rounded active:bg-white peer-checked:bg-gray-300
       peer-checked:text-slate-800 cursor-pointer">
         {v.value}
