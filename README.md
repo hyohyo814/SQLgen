@@ -1,4 +1,4 @@
-#Deployed Application
+# Deployed Application
 
 The deployed version of the application can be found on https://master--tiny-babka-b4dee4.netlify.app
 
